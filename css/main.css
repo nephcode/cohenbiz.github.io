@@ -8,10 +8,9 @@
 /*====================================================================================*/
 :root {
     --gradmain: linear-gradient(90deg, rgba(255,0,66), rgba(255,0,155));
-    --main :rgb(255,0,155);
-  
-  
-    }
+    --main : rgb(255,0,155);
+    --background-navy: rgb(0, 0, 62);
+  }
 
 /*====================================================================================*/
 /* RESPONSIVE ========================================================================*/
@@ -19,8 +18,7 @@
 .container {
     margin: auto;
     max-width: 35rem;
-    display: ;
-  }
+    }
 
 /*====================================================================================*/
 /* GLOBAL ============================================================================*/
@@ -33,7 +31,7 @@
 html, body {
     color: white;
      font-family: 'Poppins', sans-serif;
-     background-color: rgb(0, 3, 49);
+     background-color: rgb(0, 2, 29);
      margin:0;
      padding:0;
 }
@@ -57,24 +55,13 @@ a, a::before, a::after{
 }
 
 
-
-
 h1{
     font-size: 2.5rem;
-    test-align : center;
+    text-align : center;
     margin: 0;
 }
 
-h2{
-    margin: 0;
-    border-top: 2px solid #fff;
-}
 
-.footer{
-    text-transform: capitalize;
-    color: rgba(255, 0, 66);
-background: blue;
-}
 
 #soon {
   min-height:50vh;
@@ -115,6 +102,89 @@ a.extern {
   position:relative;
   box-shadow: 0 2px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.1);
 }
+
+/*====================================================================================*/
+/* HEADER ==========================================================================*/
+/*====================================================================================*/
+
+
+header {
+  display: flex;
+  justify-content: center;
+  background: var(--gradmain);
+  color: white;
+  margin: 0;
+  margin-top: 0;
+  padding:auto;
+  width: 100%;    
+}
+
+
+
+/*====================================================================================*/
+/* FOOTER ================================================================== NEPHA* ====*/
+/*====================================================================================*/
+footer{
+  display:inherit;
+  flex-direction: column;
+  width: 100vw;
+}
+
+footer h2{
+  display: flex;
+  justify-content: center;
+  font-size: small;
+  margin: 0px;
+  padding: 3px;
+  border-top: 2px solid #fff;
+  text-transform: uppercase;
+  color: rgba(255, 0, 66);
+  background: var(--background-navy)
+}
+
+.pyramides{
+  position:sticky;
+  overflow:auto;
+  display: block;
+  max-width : 250px;
+  align-self:center;  
+  top: 0;
+  margin: 0px 0px 0px 10px;
+}
+
+section.social{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: right;
+ background-color: var(--background-navy);
+ padding: 30px 20px 70px;
+}
+
+section.social div{
+
+  align-tracks: end;
+  flex-wrap: wrap;
+
+ }
+
+.network{
+  width: 250px;
+  display: flex;
+  align-content: space-around;
+ 
+  }
+
+.footer-social {
+ max-width: 40px;
+ width: 40px;
+ margin: 3px;
+}
+
+.github-pages{
+  max-width: 200px ;
+}
+
 
 /*====================================================================================*/
 /* FORM ==============================================================================*/

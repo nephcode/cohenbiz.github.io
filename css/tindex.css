@@ -1,49 +1,262 @@
-/*====================================================================================*/
-/* STRUCTURE =========================================================================*/
-/*====================================================================================*/
+/*=============================================================== OC-2023 ============*/
+/* STRUCTURE ===================== FULLSTACK =========================================*/
+/*=================================================================== BY NEPHA =======*/
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-header {
-    background: var(--gradmain);
-    color: white;
-    text-align: center;
-    margin: 0;
-    margin-top: 0;
-    padding:auto;
-    width: 100%;    
-  }
 
   
+/*====================================================================================*/
+/* MAIN ==========================================================================*/
+/*====================================================================================*/
+
 main {
-background-color: blueviolet ;
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
 
+main::before{
+  content: '';
+  position: absolute;  
+  top:0;
+  width: 10px;
+  height: 100%;
+  background-color: var(--gradmain);
+}
+
+.section--header{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+article{
+border-radius: 15px;
+border-color: var(--gradmain);
+border: 5px solid var(--gradmain);
+color: black;
+text-align: left;
+}
+article ul li{
+ list-style-type: '- ';
 
 }
 
-footer{
-    display:inherit;
-    flex-direction: column;
-    background-color: rgb(124, 129, 60);
+article h2{
+  color: rgb(255, 0, 155);
+  margin: 0px 0px 7px 0px;
+}
 
+article time{
+  color: rgb(255, 0, 155);
+  display: flex;
+  align-items: end;
+}
+
+article .skills{
+  color: rgb(255, 0, 155);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0,7rem;
+}
+
+article .skills::before{
+  content: 'SKILLS: ' ;
+}
+
+article .references{
+  color: rgb(0, 0, 67);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0,7rem;
+}
+
+article .references::before{
+  content: 'REFERENCES: ' ;
+}
+
+/*====================================================================================*/
+/* TIMELINE ==========================================================================*/
+/*====================================================================================*/
+
+.section--line {
+  display: flex;
+  flex-flow: column wrap;
+  width: 5px;
+}
+
+.section--line article{
+  bottom: 0;
+  width: 35vw;
+  padding: 1vw;
+  background: #ffffff;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.section--line article::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.section--line article::after {
  
-    width: 100%;
+  content: x"";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 1;
+}
 
+.section--line article:nth-child(odd)  {
+  align-self: center;
+  margin: 0px 0vw 0px 47vw;
+ /* background: var(--gradmain);*/
+}
+
+.section--line article:nth-child(odd)::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
+
+.section--line article:nth-child(even)  {
+  align-self: center;
+  margin: 0px 47vw 0px 0px;
+}
+
+.section--line article:nth-child(even)::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/** ======================================= **/
+/** EFFECTS =============================== **/
+/** ======================================= **/
+
+
+
+.section--line article {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.section--line article:nth-child(odd) {
+  transform: translate3d(200px, 0, 0);
+}
+
+.section--line article:nth-child(even) {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.section--line article.nephpoint  {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+.section--line article.nephpoint::after {
+  transition: background 0.5s ease-in-out;
+  background: #06003c;
 }
 
 
-.pyramides{
-  align-self:center;  
-  position: sticky;
-  background-color: aquamarine;
-  margin: 0px;
-  padding: 0px;
-  max-width : 250px;
+/** ======================================= **/
+/** MEDIA QUERIES ========================= **/
+/** ======================================= **/
+
+/** ======================================= **/
+/** CLIP PATH ============================= **/
+/** ======================================= **/
+
+.timeline-clippy ul li::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
 }
 
-/*====================================================================================*/
-/* TITLE =============================================================================*/
-/*====================================================================================*/
+.timeline-rhombus ul li::after {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+  bottom: 12px;
+}
+
+.timeline-star ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.timeline-heptagon ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+
+.timeline-infinite ul li::after {
+  animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.25);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+
+
+
+/*================= 2023 =============================================================*/
+/*===== 1 2 3 5 8 13 21 34 55 =============================== NEPHA CODE =============*/
+/*================================================================ THANK YOU =========*/
